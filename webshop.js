@@ -173,10 +173,17 @@ function maakFactuur(mand, prijsNaKorting){
     
 
     factuur.toonFactuur()
-    if(isKorting){
-        console.log("Korting:" + " ".repeat(15) + "-10%")
+    function toonFactuur(isKorting, prijsNaKorting) {
+        const pad = (label, value) => `${label.padEnd(20)} ${value}`;
+
+        if (isKorting) {
+            console.log(pad("Korting:", "-10%"));
+        }
+
+        console.log(pad("Totaal:", `${prijsNaKorting.toFixed(2)} €`));
     }
-    console.log("Totaal:" + " ".repeat(16) + prijsNaKorting.toFixed(2) + "€")
+
+toonFactuur(isKorting, prijsNaKorting)
 }
 
 process.exit()
